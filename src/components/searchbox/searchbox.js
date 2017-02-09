@@ -1,4 +1,4 @@
-class NavBarController {
+class SearchboxController {
 
   /*@ngInject*/
   constructor() {
@@ -29,9 +29,9 @@ class NavBarController {
   }
 }
 
-const Navbar = {
-  template: require('./navbar.html'),
-  controller: NavBarController
+const Searchbox = {
+  template: require('./searchbox.html'),
+  controller: SearchboxController
 };
 
-export default Navbar;
+export default Searchbox;

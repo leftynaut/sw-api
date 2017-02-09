@@ -1,9 +1,9 @@
 import angular from 'angular';
 
-import NavBar from './navbar/navbar';
+import Searchbox from './searchbox/searchbox';
 
 const module = angular.module('components.module', [])
-	.component('navbar', NavBar)
+	.component('searchbox', Searchbox)
 	.name;
 
-export default module;	
+export default module;
