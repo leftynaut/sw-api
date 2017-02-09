@@ -1,199 +1,93 @@
-# Angular Template
-This template provides a starter project that implements best practices in coding, building and testing AngularJS applications. Features include:
-- A well-organized component hierarchy starting from `approot`. Components are implemented using directives (no dangling controllers). This provides a good architectural direction until Angular 2.0 becomes available.
-- Follows AngularJS style guidelines (e.g. `controller as` syntax).
-- Uses [AngularUI Router](https://github.com/angular-ui/ui-router) for flexible routing and nested views.
-- Uses [Angular Bootstrap](http://angular-ui.github.io/bootstrap/) to remove dependencies on jQuery and Bootstrap’s JavaScript.
-- Provides logging and exception handling frameworks with toaster notifications.
-- Provides a Gulp based build system – code changes are reflected in the browser immediately.
-- Uses Karma, Mocha and Chai for testing.
+My fork of @alamgird's angular-starter project.  
 
-### Further Reading
-Visit our [wiki](https://github.com/archfirst/angular-template/wiki) for detailed concepts and useful recipes for extending the template.
+**Things I've added / changed:**
 
-Check out the following projects to see how this template can be used to build real applications:
-- [Manage My Money Client](https://github.com/archfirst/manage-my-money-client) (AngularJS best practices)
-- [Manage My Money Server](https://github.com/archfirst/manage-my-money-server) (Node.js, REST and DDD best practices)
+* Changed directory structure and components declarations to better align with Todd Motto's [style guide](https://github.com/toddmotto/angular-styleguide)
+* Switched to using [ui-router](https://github.com/angular-ui/ui-router)
+* Added a more advanced example of a component and service, with testing (see `home` component)
+* Using [ng-annotate](https://github.com/olov/ng-annotate/)
+* Added uglification and minification to production build
+* Added linting
+* Changed karma reporting to 'spec' style
+* Added ability to debug tests in firefox
+ 
+See below for the original project's list of features:  
 
-## Requirements
+# Introduction
 
-- Install Node
-    - on OSX, install [home brew](http://brew.sh/) and type `brew install node`
-    - on Windows, use the installer available at [nodejs.org](http://nodejs.org/)
-    - On OSX you can alleviate the need to run as sudo by [following John Papa's instructions](http://jpapa.me/nomoresudo)
-- Open terminal
-- Type `npm install -g node-inspector bower gulp`
+* Heavily commented webpack configuration with reasonable defaults.
+* ES6, and ES7 support with babel.
+* Source maps included in all builds.
+* Development server with live reload.
+* Production builds with cache busting.
+* Testing environment using karma to run tests and jasmine as the framework.
+* Code coverage when tests are run.
+* No gulp and no grunt, just npm scripts.
 
-## Quick Start
-Clone this repo and run the content locally:
+>Warning: Make sure you're using the latest version of Node.js and NPM
+
+### Quick start
+
+> Clone/Download the repo from git
+
 ```bash
+# clone repo
+$ git clone https://github.com/sJhonny-e/extended-angular-starter.git my-app
+
+# change directory to your app
+$ cd my-app
+
+# install the dependencies with npm
 $ npm install
-$ gulp serve-dev
-```
-- `npm install` will install the required node libraries under `node_modules` and then call `bower install` which will install the required client-side libraries under `bower_components`.
-- `gulp serve-dev` will serve up the Angular application in a browser window. It is designed for an efficient development process. As you make changes to the code, the browser will update to reflect the changes immediately.
 
-When you are ready to build the application for production, run the following command:
+# start the server
+$ npm start
+```
+
+Go to [http://localhost:8080](http://localhost:8080) in your browser.
+
+# Table of Contents
+
+* [Getting Started](#getting-started)
+    * [Dependencies](#dependencies)
+    * [Installing](#installing)
+    * [Running the app](#running-the-app)
+    * [Developing](#developing)
+    * [Testing](#testing)
+
+# Getting Started
+
+## Dependencies
+
+What you need to run this app:
+* `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
+* Ensure you're running Node (`v4.1.x`+) and NPM (`2.14.x`+)
+
+## Installing
+
+* `clone` this repo
+* `npm install` to install all dependencies
+
+## Running the app
+
+After you have installed all dependencies you can now run the app with:
 ```bash
-$ gulp serve-build
+npm start
 ```
 
-This will build a production-ready package in the `/build` folder.
+It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://localhost:8080`.
 
-## Folder Structure
+## Developing
 
-The folder structure is somewhat simplified and flatter compared to John Papa's [Gulp Patterns](https://github.com/johnpapa/gulp-patterns) project. The description below includes reasons for some of my customizations.
+### Build files
 
-### Highest Level Structure
+* single run: `npm run build`
+* build files and watch: `npm run watch`
 
-```
-/bower_components
-/build
-/node_modules
-/src
-/test
-```
+## Testing
 
-- `bower_components:` Bower components downloaded by `bower install` (do not check in)
+#### 1. Unit Tests
 
-- `build:` Production build (do not check in)
-
-- `node_modules:` Node.js modules downloaded by `npm install` (do not check in)
-
-- `src:` contains all the client source files including HTML, styles (in SASS format), JavaScript and images
-
-- `test:` contains client tests. This folder is intentionally kept separate from client source because I expect many different types of tests in this folder (unit, integration, acceptance). On real projects, the number of test files can easily exceed the number of source files, hence I like to keep the clutter away from the real source - just my preference!
-
-### Source Folder Structure
-
-```
-/src
-    /components
-    /core
-    /framework
-    /images
-    /app.module.js
-    /app.scss
-    /index.html
-```
-
-The `src` folder contains only the source for the AngularJS client application. It treats all 3 web technologies (HTML, CSS and JavaScript) as first class citizens and arranges them into logical modules. At the highest level you will find the main html, css (well, scss) and js files:
-
-- `index.html`
-- `app.scss`
-- `app.module.js`
-
-Below this level you will find various folders that arrange the application's functionality into logical modules.
-
-- `framework:` Container for reusable services such as logging, exception handling, routing, security, local storage etc. These services are expected to work out-of-the-box without any changes for most applications. The template provides sample implementations for the first three. (This folder is called `blocks` in the gulp-patterns project.)
-
-- `core:` Contains functionality that is shared across the application and will probably need customization for a specific application. This includes directives, filters and services and styles common to the entire application.
-
-- `components:` Contains all the components of the application. We recommend thinking of an Angular application as a tree of components, starting with the `app` component as the root of this tree.
-
-- `images:` Images used in the application.
-
-## Tasks
-
-### Task Listing
-
-- `gulp help`
-
-    Displays all of the available gulp tasks.
-
-### Code Analysis
-
-- `gulp vet`
-
-    Performs static code analysis on all javascript files. Runs jshint and jscs.
-
-- `gulp vet --verbose`
-
-    Displays all files affected and extended information about the code analysis.
-
-- `gulp plato`
-
-    Performs code analysis using plato on all javascript files. Plato generates a report in the reports folder.
-
-### Testing
-
-- `gulp test`
-
-    Runs all unit tests using karma runner, mocha, chai and sinon with phantomjs. Depends on vet task, for code analysis.
-
-- `gulp autotest`
-
-    Runs a watch to run all unit tests.
-
-### Cleaning Up
-
-- `gulp clean`
-
-    Remove all files from the build and temp folders
-
-- `gulp clean-images`
-
-    Remove all images from the build folder
-
-- `gulp clean-code`
-
-    Remove all javascript and html from the build folder
-
-- `gulp clean-fonts`
-
-    Remove all fonts from the build folder
-
-- `gulp clean-styles`
-
-    Remove all styles from the build folder
-
-### Fonts and Images
-
-- `gulp fonts`
-
-    Copy all fonts from source to the build folder
-
-- `gulp images`
-
-    Copy all images from source to the build folder
-
-### Styles
-
-- `gulp styles`
-
-    Compile less files to CSS, add vendor prefixes, and copy to the build folder
-
-### Angular HTML Templates
-
-- `gulp templatecache`
-
-    Create an Angular module that adds all HTML templates to Angular's $templateCache. This pre-fetches all HTML templates saving XHR calls for the HTML.
-
-- `gulp templatecache --verbose`
-
-    Displays all files affected by the task.
-
-### Serving Development Code
-
-- `gulp serve-dev`
-
-    Serves the development code and launches it in a browser. The goal of building for development is to do it as fast as possible, to keep development moving efficiently. This task serves all code from the source folders and compiles less to css in a temp folder.
-
-### Building Production Code
-
-- `gulp html`
-
-    Optimize all javascript and styles, move to a build folder, and inject them into the new index.html
-
-- `gulp build`
-
-    Copies all fonts, copies images and runs `gulp html` to build the production code to the build folder.
-
-### Serving Production Code
-
-- `gulp serve-build`
-
-    Serve the optimized code from the build folder and launch it in a browser.
-
-## Credits
-This template is heavily influenced by John Papa's [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide) and his [Gulp Patterns](https://github.com/johnpapa/gulp-patterns) project. I would like to take this opportunity to thank John for providing these excellent resources to make our jobs easier and more enjoyable.
+* single run: `npm test`
+* live mode (TDD style): `npm run test-watch`
+* live mode in firefox (for debugging): `npm run test:firefox`

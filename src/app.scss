@@ -1,5 +1,25 @@
-@import "core/styles/variables";
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
 
-@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+* {
+  border-radius: 0px !important;
+}
 
-@import "core/styles/core";
+.container-fluid {
+  padding: 0px;
+}
+
+.box {
+  width: 70%;
+  height: 200px;
+  background: #FFF;
+  margin: 40px auto;
+}
+
+.sheet {
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+#query {
+  width: 240px;
+}
