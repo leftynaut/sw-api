@@ -1,8 +1,29 @@
 body {
   background-color: #ECEFEE;
+  padding: 10px;
 }
 
 .search-box {
   background-color: #FFF;
   padding: 30px;
+  box-shadow: 3px 3px 1px #888888;
+}
+
+/*.outer-search-results {
+  padding: 0 !important;
+  margin: 0 !important;
+}*/
+
+.outer-search-results {
+  box-shadow: 3px 3px 1px #888888;
+}
+
+.one-result {
+  background-color: #FFF;
+  padding: 15px;
+}
+
+.result-name {
+  font-size: 1.8em;
+  font-weight: 500;
 }
