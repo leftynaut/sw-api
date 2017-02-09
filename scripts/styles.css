@@ -1,6 +1,23 @@
 body {
   background-color: #ECEFEE;
+}
+
+.md-toolbar {
+  background-color: #FFF !important;
+}
+
+#logo {
+  height: 50px;
+  width: 50px;
+}
+
+md-content {
+  background-color: #ECEFEE;
   padding: 10px;
+}
+
+md-dialog {
+  width: 70%;
 }
 
 .search-box {

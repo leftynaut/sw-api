@@ -22,37 +22,40 @@
 </head>
 
 <body ng-cloak layout="column" ng-controller="AppCtrl">
+	<md-toolbar class="md-toolbar">
+		<center><img id="logo" src="https://pbs.twimg.com/profile_images/561926995827621888/7ac2StA3.png"></center>
+	</md-toolbar>
 	<md-content id="content">
-		<div class="container">
+	<div class="container">
 			<div class="row">
 				<div class="col-xs-4">
 					<div class="search-box">
-					  Select what you're searching for:
-					  <form>
-					    <label class="radio-inline">
+						Select what you're searching for:
+						<form>
+							<label class="radio-inline">
 					      <input type="radio" name="optradio"> People
 					    </label>
-					    <label class="radio-inline">
+							<label class="radio-inline">
 					      <input type="radio" name="optradio"> Movies
 					    </label>
-					    <div class="form-group">
-					      <input ng-model="query" type="text" class="form-control" id="query" placeholder="e.g. Chewbacca, Yoda, Bob Fett">
-					    </div>
-					    <button ng-click="searchSwapi()" type="button" class="btn btn-default">Search</button>
-					  </form>
+							<div class="form-group">
+								<input ng-model="query" type="text" class="form-control" id="query" placeholder="e.g. Chewbacca, Yoda, Bob Fett">
+							</div>
+							<button ng-click="searchSwapi()" type="button" class="btn btn-default">Search</button>
+						</form>
 					</div>
 				</div>
 				<div class="col-xs-8 outer-search-results">
 					<!-- <div class="search-results"> -->
-						<div class="row one-result" ng-repeat="x in data">
-							<div class="col-xs-9 result-name"><a ng-click="popInfo">{{x.name}}</a></div>
-							<div class="col-xs-3"><button type="button" class="btn btn-default">See Details</button></div>
-						</div>
+					<div class="row one-result" ng-repeat="x in data">
+						<div class="col-xs-9 result-name"><a ng-click="popInfo(x)">{{x.name}}</a></div>
+						<div class="col-xs-3"><button ng-click="popInfo(x)" type="button" class="btn btn-default">See Details</button></div>
+					</div>
 					<!-- </div> -->
 				</div>
 			</div>
-		</div>
-	</md-content>
+	</div>
+</md-content>
 </body>
 
 </html>
