@@ -2,9 +2,9 @@
 
     'use strict';
 
-    angular.module('app.dashboard')
-        .directive('tmplDashboard', directiveFunction)
-        .controller('DashboardController', ControllerFunction);
+    angular.module('app.search')
+        .directive('tmplSearch', directiveFunction)
+        .controller('SearchController', ControllerFunction);
 
 
     // ----- directiveFunction -----
@@ -15,10 +15,10 @@
 
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/dashboard/dashboard.html',
+            templateUrl: 'components/search/search.html',
             scope: {
             },
-            controller: 'DashboardController',
+            controller: 'SearchController',
             controllerAs: 'vm'
         };
 
@@ -35,7 +35,7 @@
         activate();
 
         function activate() {
-            logger.log('Activated Dashboard View');
+            logger.log('Activated Search View');
         }
     }
 

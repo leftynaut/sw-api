@@ -7,7 +7,7 @@
 
         // Features (listed alphabetically)
         'app.approot',
-        'app.dashboard',
+        'app.search',
         'app.topnav'
     ]);
 })();
