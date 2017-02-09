@@ -20,27 +20,35 @@
 </head>
 
 <body ng-cloak layout="column" ng-controller="AppCtrl">
-
-	<div flex layout="row">
-		<md-content flex id="content">
-			<div class="container">
-			  Select what you're searching for:
-			  <form>
-			    <label class="radio-inline">
-			      <input type="radio" name="optradio"> People
-			    </label>
-			    <label class="radio-inline">
-			      <input type="radio" name="optradio"> Movies
-			    </label>
-			    <div class="form-group">
-			      <input ng-model="query" type="text" class="form-control" id="query" placeholder="e.g. Chewbacca, Yoda, Bob Fett">
-			    </div>
-			    <button ng-click="searchSwapi()" type="button" class="btn btn-default">Search</button>
-			  </form>
+	<md-content id="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-5">
+					<div class="search-box">
+					  Select what you're searching for:
+					  <form>
+					    <label class="radio-inline">
+					      <input type="radio" name="optradio"> People
+					    </label>
+					    <label class="radio-inline">
+					      <input type="radio" name="optradio"> Movies
+					    </label>
+					    <div class="form-group">
+					      <input ng-model="query" type="text" class="form-control" id="query" placeholder="e.g. Chewbacca, Yoda, Bob Fett">
+					    </div>
+					    <button ng-click="searchSwapi()" type="button" class="btn btn-default">Search</button>
+					  </form>
+					</div>
+				</div>
+				<div class="col-xs-7">
+					<div class="row" ng-repeat="x in data">
+						<div class="col-xs-10">{{x.name}}</div>
+						<div class="col-xs-2"><button>See Details</button></div>
+					</div>
+				</div>
 			</div>
-			{{data}}
-		</md-content>
-	</div>
+		</div>
+	</md-content>
 </body>
 
 </html>
