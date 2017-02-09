@@ -33,13 +33,13 @@
 						Select what you're searching for:
 						<form>
 							<label class="radio-inline">
-					      <input type="radio" name="optradio"> People
+					      <input ng-click="changeText('people')" type="radio" name="optradio"> People
 					    </label>
 							<label class="radio-inline">
-					      <input type="radio" name="optradio"> Movies
+					      <input ng-click="changeText('movies')" type="radio" name="optradio"> Movies
 					    </label>
 							<div class="form-group">
-								<input ng-model="query" type="text" class="form-control" id="query" placeholder="e.g. Chewbacca, Yoda, Bob Fett">
+								<input ng-model="query" type="text" class="form-control" id="query" placeholder={{placeholderText}}>
 							</div>
 							<button ng-click="searchSwapi()" type="button" class="btn btn-default">Search</button>
 						</form>

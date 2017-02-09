@@ -2,11 +2,36 @@ angular
     .module('webapp', ['ngMaterial', 'ngMessages', 'ngResource', 'ngSanitize'])
     .controller('AppCtrl', ($scope, $http, $mdDialog) => {
       $scope.query = "";
+      $scope.placeholderText = "e.g. Chewbacca, Yoda, Bob Fett";
+      let people = true;
+      $scope.changeText = (selection) => {
+        if (selection === 'people') {
+          $scope.placeholderText = "e.g. Chewbacca, Yoda, Bob Fett";
+          people = true;
+        } else {
+          $scope.placeholderText = "e.g. Empire Strikes Back, The Force Awakens";
+          people = false;
+        }
+      }
       $scope.searchSwapi = () => {
-        $http.get(`https://swapi.co/api/people/?search=${$scope.query}`)
-        .success((data) => {
+        if (people) {
+          $http.get(`https://swapi.co/api/people/?search=${$scope.query}`)
+          .success((data) => {
             $scope.data = data.results;
-        })
+          })
+        } else {
+          $http.get(`https://swapi.co/api/films/?search=${$scope.query}`)
+          .success((data) => {
+            let films = data.results;
+            console.log(films)
+            films = films.map(item => {
+              return {
+                name: item.title
+              }
+            })
+            $scope.data = films
+          })
+        }
       }
       $scope.popInfo = (selection) => {
             const films = selection.films;
