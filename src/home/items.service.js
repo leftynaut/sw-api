@@ -6,10 +6,11 @@ class ItemsService {
 		this.searchResults = [];
 	}
 
-	getItems(query) {
+	getItems(query, type) {
+		console.log(query, type)
 		this.searchResults.length = 0
 		Array.prototype.push.apply(this.searchResults, [{name: "Loading"}])
-		this.$http.get(`https://swapi.co/api/people/?search=${query}`)
+		this.$http.get(`https://swapi.co/api/${type}/?search=${query}`)
 		.then((results) => {
 			const data = results.data.results;
 			this.searchResults.length = 0

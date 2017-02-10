@@ -5,12 +5,17 @@ class SearchboxController {
 
     this.query = '';
     this.itemsService = ItemsService;
+    this.selectedType = 'people';
 
+  }
+
+  searchType(type) {
+    this.selectedType = type;
   }
 
   searchSwapi() {
     this.itemsService
-    .getItems(this.query)
+    .getItems(this.query, this.selectedType)
   }
 }
 

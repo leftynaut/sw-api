@@ -3,10 +3,10 @@
   <form>
     <div class="form-group">
       <label class="radio-inline">
-        <input type="radio" name="optradio"> People
+        <input ng-click="$ctrl.searchType('people')" type="radio" name="optradio"> People
       </label>
       <label class="radio-inline">
-        <input type="radio" name="optradio"> Movies
+        <input ng-click="$ctrl.searchType('films')" type="radio" name="optradio"> Movies
       </label>
       <input ng-model="$ctrl.query" type="text" class="form-control" placeholder="e.g. Chewbacca, Yoda, Bob Fett">
       <button ng-click="$ctrl.searchSwapi()" type="button" class="btn btn-default">Search</button>
