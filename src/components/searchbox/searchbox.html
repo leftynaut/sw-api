@@ -8,8 +8,8 @@
       <label class="radio-inline">
         <input type="radio" name="optradio"> Movies
       </label>
-      <input type="text" class="form-control" id="query" placeholder="e.g. Chewbacca, Yoda, Bob Fett">
-      <button type="button" class="btn btn-default">Search</button>
+      <input ng-model="$ctrl.query" type="text" class="form-control" placeholder="e.g. Chewbacca, Yoda, Bob Fett">
+      <button ng-click="$ctrl.searchSwapi()" type="button" class="btn btn-default">Search</button>
     </div>
   </form>
 </div>

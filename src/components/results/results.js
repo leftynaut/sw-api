@@ -1,9 +1,9 @@
 class ResultsController {
 
   /*@ngInject*/
-  constructor() {
+  constructor(ItemsService) {
 
-    // this.brand = 'Synopsis';
+    this.dataOutput = ItemsService.searchResults;
     //
     // this.items = [{
     //   href: '#',

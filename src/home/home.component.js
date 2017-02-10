@@ -1,16 +1,16 @@
 class HomeController {
 	/*@ngInject*/
-	constructor(ItemsService) {
-		this.itemsService = ItemsService;
+	constructor() {
+		// this.itemsService = ItemsService;
 		this.items = [];
 	}
 
-	$onInit() {
-		this.itemsService
-			.getItems()
-			.then((items) => this.items = items);
-			// TODO: error handling	
-	}
+	// $onInit() {
+	// 	this.itemsService
+	// 		.getItems()
+	// 		.then((items) => this.items = items);
+	// 		// TODO: error handling
+	// }
 }
 
 const homeComponent = {

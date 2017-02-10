@@ -1,9 +1,10 @@
 class SearchboxController {
 
   /*@ngInject*/
-  constructor() {
+  constructor(ItemsService) {
 
-    // this.brand = 'Synopsis';
+    this.query = '';
+    this.itemsService = ItemsService;
     //
     // this.items = [{
     //   href: '#',
@@ -21,12 +22,10 @@ class SearchboxController {
 
   }
 
-  // onItemClicked(clickedItem) {
-  //   this.items = this.items.map((item) => {
-  //     item.isActive = item.label === clickedItem.label;
-  //     return item;
-  //   });
-  // }
+  searchSwapi() {
+    this.itemsService
+    .getItems(this.query)
+  }
 }
 
 const Searchbox = {
