@@ -1,4 +1,4 @@
-class SearchboxController {
+class ResultsController {
 
   /*@ngInject*/
   constructor() {
@@ -29,9 +29,9 @@ class SearchboxController {
   // }
 }
 
-const Searchbox = {
-  template: require('./searchbox.html'),
-  controller: SearchboxController
+const Results = {
+  template: require('./results.html'),
+  controller: ResultsController
 };
 
-export default Searchbox;
+export default Results;
