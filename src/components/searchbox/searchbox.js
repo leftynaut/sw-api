@@ -5,20 +5,6 @@ class SearchboxController {
 
     this.query = '';
     this.itemsService = ItemsService;
-    //
-    // this.items = [{
-    //   href: '#',
-    //   label: 'Home',
-    //   isActive: true
-    // }, {
-    //   href: '#',
-    //   label: 'About',
-    //   isActive: false
-    // }, {
-    //   href: '#',
-    //   label: 'Contact',
-    //   isActive: false
-    // }];
 
   }
 

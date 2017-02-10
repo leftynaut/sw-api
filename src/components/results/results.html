@@ -1,3 +1,8 @@
 <div>
-  {{$ctrl.dataOutput}}
+  <a ng-click="$ctrl.testTheThing()">Test</a>
+  <ul class="">
+      <li ng-repeat="x in $ctrl.dataOutput">
+          {{ x }}
+      </li>
+  </ul>
 </div>
