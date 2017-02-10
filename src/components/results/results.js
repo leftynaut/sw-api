@@ -6,10 +6,6 @@ class ResultsController {
 
   }
 
-  testTheThing(){
-    console.log(this.dataOutput)
-  }
-
 }
 
 const Results = {

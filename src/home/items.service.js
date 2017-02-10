@@ -7,12 +7,14 @@ class ItemsService {
 	}
 
 	getItems(query) {
+		this.searchResults.length = 0
+		Array.prototype.push.apply(this.searchResults, [{name: "Loading"}])
 		this.$http.get(`https://swapi.co/api/people/?search=${query}`)
 		.then((results) => {
 			const data = results.data.results;
 			this.searchResults.length = 0
-			// _.assign(this.searchResults, data);
 			Array.prototype.push.apply(this.searchResults, data)
+			// _.assign(this.searchResults, data);
 		})
 		// return this.$q.resolve([
 		// 		{ id: 1, title: 'Sports', img: 'http://lorempixel.com/300/300/sports'},
