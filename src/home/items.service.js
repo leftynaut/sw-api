@@ -10,7 +10,9 @@ class ItemsService {
 		this.$http.get(`https://swapi.co/api/people/?search=${query}`)
 		.then((results) => {
 			const data = results.data.results;
-			this.searchResults = data;
+			this.searchResults.length = 0
+			// _.assign(this.searchResults, data);
+			Array.prototype.push.apply(this.searchResults, data)
 		})
 		// return this.$q.resolve([
 		// 		{ id: 1, title: 'Sports', img: 'http://lorempixel.com/300/300/sports'},

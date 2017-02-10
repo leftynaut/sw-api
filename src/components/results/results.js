@@ -14,7 +14,8 @@ class ResultsController {
 
 const Results = {
   template: require('./results.html'),
-  controller: ResultsController
+  controller: ResultsController,
+  bindings: { results: '<' }
 };
 
 export default Results;
